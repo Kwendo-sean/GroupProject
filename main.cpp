@@ -49,10 +49,29 @@ void Addstudent() {
  cout << "Enter your other name:\n";
  cin >> secondname;
  cout << "Enter your gender(M,F):\n";
- cin >> gender;
- ofstream file ("firstname,secondname,gender");
- file << firstname << secondname << gender;
- file.close();
+cin >> gender;
+if(gender == 'M'|| gender == 'F'){
+    cout << "Student added\n";
+}else{
+    cout << "Failed to add student.Invalid gender input\n";
+    return;
+}
+//Exiting or returning to the menu
+  cout << "Do yo want to go back home? (Y,N)";
+  cin >> choice;
+  if(choice == 'Y'||'y'){
+      return;
+  }else if(choice == 'N'||'n'){
+      cout << "Thank you";
+  }
+ofstream file("student_data.xlsx", ios::app);
+    if (file.is_open()) {
+        file << firstname << " " << secondname << " " << gender << " " << clubs << " " << sports << "\n"; 
+        file.close();
+        cout << "Student data saved successfully.\n";
+    } else {
+        cout << "Failed to open file for writing.\n";
+    }
 }
 void Viewstudent() {
  cout <<  "View student \n";
