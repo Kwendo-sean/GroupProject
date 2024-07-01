@@ -20,15 +20,19 @@ string clubs = "Journalism, Red Cross, AISEC, Business club, Computer science cl
 string sports = "Rugby, Soccer, Swimming, Athletics";
 struct{
  string firstname;
- string lastname;
- string gender;
+ string secondname;
+ char gender;
  string chosensports;
  string chosenclubs;
  string chosengroup;
 }Student;
 string firstname;
 string secondname;
-char gender;
+char Y;
+char N;
+char choice = Y||N;
+char M;
+char gender = M,F;
 int numofclubs = 0;
 int numofsports = 0;
 int group = 60;
