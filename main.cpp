@@ -158,56 +158,50 @@ void Exit() {
  cout << "Exited";
 }
 int main() {
- cout << "Hello, welcome to Strathmore University \n ";
- cout << "We are glad to have you here on your first day,";
- cout << "to help you get up and about,you are going to need to choose a club and  a sport.\n";
- cout << "Note the following when you are selecting the clubs and sports:\n";
- cout << "1.The sports offered are: \n\t\t";
- cout << "1.Rugby \n\t\t2.Soccer \n\t\t3.Athletics\n\t\t4.Swimming\n" ;
- cout << "2.The clubs offered are: \n\t\t";
-
- cout << "1-Journalism \n\t\t2-Red cross \n\t\t3-AISEC \n\t\t4.Business club \n\t\t5.Computer science club \n\n";
- //The menu
- cout << "Main Menu\n";
- cout << " 1.Add student \n "
-         "2.View student \n"
-         " 3.View clubs \n"
-         " 4.View sports \n"
-         " 5.View groups \n"
-         " 6.Save all files \n"
-         " 7.Exit \n";
-
- cout << "Enter your choice \n";
- cin >> menu;
- switch (menu) {
-  case 1:
-   Addstudent();
-break;
-  case 2:
-   Viewstudent();
-break;
-  case 3:
-   Viewclubs();
-break;
-  case 4:
- Viewsports();
-  break;
-  case 5:
-   Viewgroups();
-  break;
-  case 6:
-   Savefiles();
-break;
-  case 7:
-   Exit();
-  break;
-  default:
-   cout << "Invalid input\n";
-  break;
- }
-
+    cout << "Hello, welcome to Strathmore University\n";
+    cout << "We are glad to have you here on your first day\n";
+    while (true) {
+        cout << "Please choose from the menu below:\n";
+        //The menu
+        cout << "Student Menu\n";
+        cout << " 1.Add student \n "
+                 "2.View student \n"
+                 " 3.View clubs \n"
+                 " 4.View sports \n"
+                 " 5.View groups \n"
+                 " 6.Save all files \n"
+                 " 7.Exit \n";
+        cout << "Enter your choice \n";
+        cin >> menu;
+        switch (menu) {
+            case 1:
+                Addstudent();
+            break;
+            case 2:
+                Viewstudents();
+            break;
+            case 3:
+                Viewclubs();
+            break;
+            case 4:
+                Viewsports();
+            break;
+            case 5:
+                Viewgroups();
+            break;
+            case 6:
+                Savefiles();
+            break;
+            case 7:
+                Exit();
+            break;
+            default:
+                cout << "Invalid input\n";
+            break;
+        }
+    }
+    return 0;
 }
-
 
 
 
