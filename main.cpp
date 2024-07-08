@@ -16,32 +16,31 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-string clubs = "Journalism, Red Cross, AISEC, Business club, Computer science club";
-string sports = "Rugby, Soccer, Swimming, Athletics";
+string chosenclubs = "Journalism, Red Cross, AISEC, Business club, Computer science club";
+string chosensports = "Rugby, Soccer, Swimming, Athletics";
 struct{
- string firstname;
- string secondname;
+ int studentnumber;
+ string othername;
+ string surname;
  char gender;
  string chosensports;
  string chosenclubs;
  string chosengroup;
 }Student;
-string firstname;
-string secondname;
-char Y;
-char N;
-char choice = Y||N;
+int studentnumber;
+string othername;
+string surname;
 char M;
 char gender = M,F;
 int numofclubs = 0;
 int numofsports = 0;
-int group = 60;
-int maxnoofsports = 3;
+int maxnoofsports = 1;
 int maxnoofclubs = 3;
 int maxnuminsports = 20;
 int maxnuminclubs = 60;
 int minnumberofsports = 1;
 int minnumofclubs = 1;
+int maxingroups = 50;
 int menu;
 void Addstudent() {
  cout << "Enter your Surname:\n";
