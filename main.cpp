@@ -44,33 +44,70 @@ int maxingroups = 50;
 int menu;
 void Addstudent() {
  cout << "Enter your Surname:\n";
- cin >> firstname;
+ cin >> surname;
  cout << "Enter your other name:\n";
- cin >> secondname;
+ cin >> othername;
+    cout << "Enter your student number\n";
+    cin >> studentnumber;
  cout << "Enter your gender(M,F):\n";
 cin >> gender;
-if(gender == 'M'|| gender == 'F'){
-    cout << "Student added\n";
+if(gender != 'M' && gender != 'F'){
+	cout << "Invalid gender input\n";
+	return;
+		}
+    cout << "Which club(s) do you want to join?(Journalism, Red cross, AISEC, Business club, Computer science club, None)"
+            "(If you pick two,input the two then none as the third;Same to picking one)\n";
+   cin >> chosenclubs >> chosenclubs >> chosenclubs ;
+    if(chosenclubs != "Journalism" && chosenclubs != "Red Cross" && chosenclubs != "AISEC" && chosenclubs != "Business club" && chosenclubs != "Computer science club" && chosenclubs != "None") {
+       cout << "Invalid input\n";
+        exit(0);
+        }
+    else {
+       cout << "How many clubs have you entered?\n";
+       cin >> numofclubs;
+       if(numofclubs>3){
+       	cout << "You have exceeded the number of clubs\n";
+       	exit(0);
+	   }
+    }
+	cout << "Which sports do you want to participate in?(Rugby, Soccer, Swimming, Athletics,None)\n";
+	cin >> chosensports;
+    if(chosensports == "Rugby" || chosensports== "Soccer" || chosensports== "Swimming" || chosensports== "Athletics" || chosensports == "None") {
+        cout << "How many sports did you pick?\n";
+        cin >> numofsports;
+        if(numofsports >1) {
+            cout << "You have exceeded the number of sports";
+            exit(0);
+        }
+    }else {
+        cout << "Invalid input";
+        exit(0);
+    }
+//One can take a maximum of 3 clubs if they are  not in any sport,If they are in a sport,
+//they can take 1 sport and not more than two clubs,nd either 1 sport or 1 club is compulsory
+if(numofsports==0 && numofclubs==0){
+cout << "You have to pick atleast one sport or club\n";
+exit(0);
+}if(numofsports==1 && numofclubs <= 2){
+     cout << "Thank you\n";
 }else{
-    cout << "Failed to add student.Invalid gender input\n";
-    return;
+	cout << "Invalid club and sports input\n";
+	exit(0);
+} if(numofsports==0 && numofclubs==3){
+	cout<< "Thank you\n";
+}if(numofsports>1 && numofclubs>0){
+	cout << "You cannot pick more than one sport\n";
+	exit(0);
 }
-//Exiting or returning to the menu
-  cout << "Do yo want to go back home? (Y,N)";
-  cin >> choice;
-  if(choice == 'Y'||'y'){
-      return;
-  }else if(choice == 'N'||'n'){
-      cout << "Thank you";
-  }
-ofstream file("student_data.xlsx", ios::app);
+    ofstream file("projectstudentdata.csv", ios::app);
     if (file.is_open()) {
-        file << firstname << " " << secondname << " " << gender << " " << clubs << " " << sports << "\n"; 
+        file << surname << "," << othername << "," << gender << "," << chosenclubs << "," << chosenclubs << "," << chosenclubs << "," << chosensports << "," << studentnumber << '\n';
         file.close();
         cout << "Student data saved successfully.\n";
     } else {
         cout << "Failed to open file for writing.\n";
     }
+
 }
 void Viewstudent() {
  cout <<  "View student \n";
