@@ -145,16 +145,30 @@ void Viewclubs() {
 }
 
 void Viewsports() {
- cout << " You can only pick one of the following sports if you are  in not more than 2 clubs \n";
- cout << sports << endl;
- cin >> sports;
- cout << "How many sports have you picked?\n";
- cin >> numofsports;
- if ( numofsports > 3) {
-  cout << "You have exceeded the number of sports";
- }else {
-  cout << "Thank you for picking the sports";
+ ifstream file("projectstudentdata.csv");
+ if(!file.is_open()){
+ 	cout << "The file cannot open\n";
+ 	exit(0);
  }
+cout << "Enter your student number\n";
+ cin >> Student.studentnumber;
+   bool studentFound = false;
+    while (file >> Student.surname >> Student.othername >> Student.gender >> Student.studentnumber) {
+        getline(file, Student.chosengroup);
+        getline(file, Student.chosensports);
+        getline(file, Student.chosenclubs);
+         if (Student.studentnumber = studentnumber) {
+            studentFound = true;
+            break;
+            }
+            }
+ file.close();
+ if (studentFound) {
+        cout << "You picked the following sports:\n";
+        cout << "Sports: " << Student.chosensports << "\n";
+    } else {
+        cout << "Student not found.\n";
+    }
 }
 void Viewgroups() {
  cout << "Welcome to the group menu \n";
