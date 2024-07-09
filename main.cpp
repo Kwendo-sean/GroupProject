@@ -118,23 +118,32 @@ void Viewstudent() {
  cout << "Your clubs are :\n" << Student.chosenclubs << endl;
 }
 void Viewclubs() {
- cout << "The clubs offered are: \n\t\t\t";
- cout << "1-Journalism \n\t\t\t "
-         "2-Red cross \n\t\t\t "
-         "3-AISEC \n\t\t\t "
-         "4.Business club \n\t\t\t "
-         "5.Computer science club \n\n";
- cout << "From the five clubs shown below,you can only take three if you are in a sport\n\t";
- cout << clubs << endl;
- cin >> clubs;
- cout << "How many clubs have you picked? \n ";
- cin >> numofclubs;
- if ( numofclubs > 3) {
-  cout << "You have exceeded the number of clubs";
- }else {
-  cout <<"Thank you for picking the clubs\n";
+   ifstream file("projectstudentdata.csv");
+ if(!file.is_open()){
+ 	cout << "The file cannot open\n";
+ 	exit(0);
  }
+ cout << "Enter your student number\n";
+ cin >> Student.studentnumber;
+   bool studentFound = false;
+    while (file >> Student.surname >> Student.othername >> Student.gender >> Student.studentnumber) {
+        getline(file, Student.chosengroup);
+        getline(file, Student.chosensports);
+        getline(file, Student.chosenclubs);
+         if (Student.studentnumber = studentnumber) {
+            studentFound = true;
+            break;
+            }
+            }
+ file.close();
+ if (studentFound) {
+        cout << "You picked the following clubs:\n";
+        cout << "Clubs: " << Student.chosenclubs << "\n";
+    } else {
+        cout << "Student not found.\n";
+    }
 }
+
 void Viewsports() {
  cout << " You can only pick one of the following sports if you are  in not more than 2 clubs \n";
  cout << sports << endl;
