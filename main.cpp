@@ -172,13 +172,39 @@ cout << "Enter your student number\n";
 }
 void Viewgroups() {
  cout << "Welcome to the group menu \n";
- cout << "You have been placed in group " << group << endl;
+  ifstream file("projectstudentdata.csv");
+ if(!file.is_open()){
+ 	cout << "The file cannot open\n";
+ 	exit(0);
+ }
+cout << "Enter your student number\n";
+ cin >> Student.studentnumber;
+   bool studentFound = false;
+    while (file >> Student.surname >> Student.othername >> Student.gender >> Student.studentnumber) {
+        getline(file, Student.chosengroup);
+        getline(file, Student.chosensports);
+        getline(file, Student.chosenclubs);
+         if (Student.studentnumber = studentnumber) {
+            studentFound = true;
+            break;
+            }
+            }
+ file.close();
+ if (studentFound) {
+        cout << "You have been placed in the following group:\n";
+        cout << "Group: " << Student.chosengroup << "\n";
+    } else {
+        cout << "Student not found.\n";
+    }
 }
 void Savefiles() {
  cout << "Saved\n";
+ return;
 }
 void Exit() {
  cout << "Exited";
+    exit(0);
+ return;
 }
 int main() {
     cout << "Hello, welcome to Strathmore University\n";
