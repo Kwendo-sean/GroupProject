@@ -112,7 +112,7 @@ exit(0);
 void Viewstudent() {
  cout <<  "View student \n";
  cout << "Enter the student's name\n";
- cin >> firstname >> secondname;
+ cin >> surname >> othername;
  cout << "You are in group:\n" << Student.chosengroup <<endl;
  cout << "Your sports are :\n" << Student.chosensports <<endl;
  cout << "Your clubs are :\n" << Student.chosenclubs << endl;
@@ -227,7 +227,7 @@ int main() {
                 Addstudent();
             break;
             case 2:
-                Viewstudents();
+                Viewstudent();
             break;
             case 3:
                 Viewclubs();
@@ -251,7 +251,6 @@ int main() {
     }
     return 0;
 }
-
 
 
 
